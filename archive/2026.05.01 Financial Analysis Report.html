@@ -1,0 +1,2417 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)file:///C:/Users/1/Downloads/gi_report_issue2_may1_2026_1.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The GI Report — Issue No. 2 — May 1, 2026</title>
+<link href="./index_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --paper: #f5f0e8;
+    --accent: #b5382a;
+    --gold: #c49a2a;
+    --mid: #4a4a4a;
+    --border: #d4c9b4;
+    --card: #ffffff;
+    --green: #1a6b3c;
+    --blue: #1a3d6b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  /* MASTHEAD */
+  .masthead {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 36px 32px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .masthead::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--gold), var(--accent));
+  }
+  .masthead-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .masthead h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 4vw, 36px);
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+  }
+  .masthead h1 span { color: var(--gold); }
+  .masthead-meta {
+    text-align: right;
+    font-size: 12px;
+    color: #aaa;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .masthead-meta strong { display: block; font-size: 14px; color: var(--paper); margin-bottom: 2px; }
+  .masthead-tagline {
+    font-size: 13px;
+    color: #999;
+    border-top: 1px solid #333;
+    padding-top: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* NAV TABS */
+  .nav-tabs {
+    display: flex;
+    gap: 0;
+    background: var(--ink);
+    border-top: 1px solid #222;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nav-tab {
+    padding: 12px 22px;
+    color: #999;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .nav-tab:hover { color: var(--paper); }
+  .nav-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+  /* MAIN CONTENT */
+  .container { max-width: 900px; margin: 0 auto; padding: 28px 16px; }
+
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* SECTION HEADER */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--border);
+  }
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 3vw, 26px);
+    font-weight: 700;
+  }
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--border);
+    line-height: 1;
+  }
+
+  /* COMPANY CARD */
+  .company-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .company-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background: var(--ink);
+    color: var(--paper);
+    cursor: pointer;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .company-header:hover { background: #1a1a1a; }
+  .company-rank {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--gold);
+    opacity: 0.7;
+    min-width: 36px;
+  }
+  .company-name-block { flex: 1; }
+  .company-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .company-ticker {
+    font-size: 11px;
+    color: #aaa;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .company-stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .stat-pill {
+    text-align: center;
+  }
+  .stat-pill .val {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  .stat-pill .lbl {
+    display: block;
+    font-size: 10px;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .chevron {
+    color: #666;
+    font-size: 18px;
+    transition: transform 0.2s;
+  }
+  .company-card.open .chevron { transform: rotate(180deg); }
+
+  .company-body {
+    display: none;
+    padding: 20px;
+  }
+  .company-card.open .company-body { display: block; }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  @media (max-width: 600px) { .detail-grid { grid-template-columns: 1fr; } }
+
+  .detail-box {
+    background: #f9f7f3;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+  .detail-box h4 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--mid);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .detail-box p, .detail-box ul {
+    font-size: 13px;
+    color: var(--ink);
+  }
+  .detail-box ul { padding-left: 16px; }
+  .detail-box ul li { margin-bottom: 3px; }
+
+  .growth-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .bar-track {
+    flex: 1;
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--green), #2ecc71);
+    transition: width 0.8s ease;
+  }
+  .bar-val { font-size: 13px; font-weight: 700; color: var(--green); min-width: 50px; }
+
+  /* BOARD TABLE */
+  .board-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 6px;
+  }
+  .board-table th {
+    background: #f0ece3;
+    padding: 8px 10px;
+    text-align: left;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--mid);
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+  }
+  .board-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+  }
+  .board-table tr:last-child td { border-bottom: none; }
+  .board-table tr:hover td { background: #faf8f4; }
+  .board-name { font-weight: 600; }
+  .board-other { color: var(--mid); font-size: 12px; }
+  .board-role { color: var(--accent); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* IPO TABLES */
+  .ipo-grid {
+    display: grid;
+    gap: 16px;
+  }
+  .ipo-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 12px 20px;
+    align-items: start;
+  }
+  @media (max-width: 600px) { .ipo-card { grid-template-columns: 1fr; } }
+  .ipo-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--border);
+  }
+  .ipo-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+  .ipo-sector {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--mid);
+    margin-bottom: 6px;
+  }
+  .ipo-desc { font-size: 13px; color: var(--mid); }
+  .ipo-badge {
+    text-align: right;
+  }
+  .badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .badge.completed { background: #e8f5ee; color: var(--green); border: 1px solid #b2dfc2; }
+  .badge.expected { background: #fef6e4; color: var(--gold); border: 1px solid #f0d78a; }
+  .badge.filed { background: #e8eef5; color: var(--blue); border: 1px solid #a8c0d8; }
+  .ipo-val { font-size: 13px; font-weight: 700; color: var(--ink); }
+  .ipo-val-lbl { font-size: 10px; color: #aaa; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* TRENDS BOX */
+  .trend-card {
+    background: var(--card);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+  .trend-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+  .trend-card p { font-size: 13px; color: var(--mid); }
+
+  /* FOOTER */
+  .report-footer {
+    background: var(--ink);
+    color: #666;
+    padding: 20px 32px;
+    font-size: 11px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+  }
+  .report-footer span { color: #999; }
+
+  /* SUMMARY BAR */
+  .summary-bar {
+    display: flex;
+    gap: 0;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  .summary-item {
+    flex: 1;
+    padding: 14px 16px;
+    border-right: 1px solid var(--border);
+    text-align: center;
+  }
+  .summary-item:last-child { border-right: none; }
+  .summary-item .s-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    display: block;
+  }
+  .summary-item .s-lbl {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--mid);
+  }
+  @media (max-width: 500px) {
+    .summary-bar { flex-wrap: wrap; }
+    .summary-item { border-right: none; border-bottom: 1px solid var(--border); min-width: 50%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-top">
+    <h1>The <span>GI</span><br>Report</h1>
+    <div class="masthead-meta">
+      <strong>May 1, 2026</strong>
+      Issue No. 2 · Published Every Friday
+    </div>
+  </div>
+  <div class="masthead-tagline">Top Growth Companies · Education · Media · Board Intelligence · IPO Pipeline · Market Trends · Fresh as of Market Close</div>
+</div>
+
+<!-- NAV TABS -->
+<div class="nav-tabs">
+  <div class="nav-tab active" onclick="showSection(&#39;growth&#39;)">Growth Companies</div>
+  <div class="nav-tab" onclick="showSection(&#39;education&#39;)">Education</div>
+  <div class="nav-tab" onclick="showSection(&#39;media&#39;)">Media</div>
+  <div class="nav-tab" onclick="showSection(&#39;ipo2025&#39;)">2025 IPOs</div>
+  <div class="nav-tab" onclick="showSection(&#39;ipo2026&#39;)">2026 IPO Pipeline</div>
+  <div class="nav-tab" onclick="showSection(&#39;trends&#39;)">Key Trends</div>
+</div>
+
+<!-- =================== SECTION 1: GROWTH COMPANIES =================== -->
+<div class="section active" id="growth">
+<div class="container">
+
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2>Top 10 Global Growth Companies</h2>
+  </div>
+
+  <div class="summary-bar">
+    <div class="summary-item"><span class="s-val">$56.3B</span><span class="s-lbl">Meta Q1 2026 Rev</span></div>
+    <div class="summary-item"><span class="s-val">+33%</span><span class="s-lbl">Meta Q1 YoY Growth</span></div>
+    <div class="summary-item"><span class="s-val">$111.2B</span><span class="s-lbl">Apple Q2 2026 Rev</span></div>
+    <div class="summary-item"><span class="s-val">+17%</span><span class="s-lbl">Apple Q2 YoY Growth</span></div>
+  </div>
+
+  <p style="font-size:13px;color:var(--mid);margin-bottom:20px;">Ranked by combination of 2025 revenue growth rate and market capitalization. Tap each company to expand board members and cross-board data.</p>
+
+  <!-- NVIDIA -->
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">01</span>
+      <div class="company-name-block">
+        <div class="company-name">Nvidia Corporation</div>
+        <div class="company-ticker">NVDA · Technology · Santa Clara, CA</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">+114%</span><span class="lbl">FY2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">$3.3T</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box">
+          <h4>Revenue Performance</h4>
+          <div class="growth-bar"><span style="font-size:12px;color:var(--mid);min-width:90px">FY2025 +114%</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-val">$130.5B</span></div>
+          <div class="growth-bar"><span style="font-size:12px;color:var(--mid);min-width:90px">FY2026 +65%</span><div class="bar-track"><div class="bar-fill" style="width:65%"></div></div><span class="bar-val">$216B</span></div>
+          <p style="font-size:12px;color:var(--mid);margin-top:8px">Data Center revenue hit $115.2B in FY2025, up 142% YoY. AI chip demand from hyperscalers drives growth.</p>
+        </div>
+        <div class="detail-box">
+          <h4>Key Drivers</h4>
+          <ul>
+            <li>H100 &amp; Blackwell AI chip dominance</li>
+            <li>NVLink compute fabric (networking +162%)</li>
+            <li>Inference &amp; agentic AI applications</li>
+            <li>Gaming revenue +30% YoY</li>
+            <li>Automotive revenue +32% YoY</li>
+          </ul>
+        </div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Jensen Huang</span></td><td><span class="board-role">CEO &amp; Director</span></td><td class="board-other">Founder; no other public boards</td></tr>
+          <tr><td><span class="board-name">Robert Burgess</span></td><td><span class="board-role">Lead Independent Director</span></td><td class="board-other">VMware (former), various advisory roles</td></tr>
+          <tr><td><span class="board-name">Tench Coxe</span></td><td><span class="board-role">Director</span></td><td class="board-other">Sutter Hill Ventures partner; multiple tech boards</td></tr>
+          <tr><td><span class="board-name">John "JH" Dabiri</span></td><td><span class="board-role">Director</span></td><td class="board-other">Caltech Professor; DARPA advisor</td></tr>
+          <tr><td><span class="board-name">Persis Drell</span></td><td><span class="board-role">Director</span></td><td class="board-other">Stanford Provost (former); scientific advisory boards</td></tr>
+          <tr><td><span class="board-name">Dawn Hudson</span></td><td><span class="board-role">Director</span></td><td class="board-other">Activision Blizzard (former), P&amp;G, various consumer boards</td></tr>
+          <tr><td><span class="board-name">Harvey Jones</span></td><td><span class="board-role">Director</span></td><td class="board-other">Multiple Silicon Valley tech ventures</td></tr>
+          <tr><td><span class="board-name">Michael McCaffery</span></td><td><span class="board-role">Director</span></td><td class="board-other">Duke Management Co.; various endowment boards</td></tr>
+          <tr><td><span class="board-name">Stephen Neal</span></td><td><span class="board-role">Director</span></td><td class="board-other">Cooley LLP Chair; Cologuard, Elance-oDesk</td></tr>
+          <tr><td><span class="board-name">Mark Perry</span></td><td><span class="board-role">Director</span></td><td class="board-other">Arista Networks, Cadence Design Systems</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ELI LILLY -->
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">02</span>
+      <div class="company-name-block">
+        <div class="company-name">Eli Lilly and Company</div>
+        <div class="company-ticker">LLY · Pharmaceuticals · Indianapolis, IN</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">+45%</span><span class="lbl">2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">$750B+</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box">
+          <h4>Revenue Performance</h4>
+          <div class="growth-bar"><span style="font-size:12px;color:var(--mid);min-width:90px">2025 +45%</span><div class="bar-track"><div class="bar-fill" style="width:75%"></div></div><span class="bar-val">$65.2B</span></div>
+          <div class="growth-bar"><span style="font-size:12px;color:var(--mid);min-width:90px">2026 est. +26%</span><div class="bar-track"><div class="bar-fill" style="width:45%"></div></div><span class="bar-val">$80-83B</span></div>
+          <p style="font-size:12px;color:var(--mid);margin-top:8px">GLP-1 drugs Mounjaro and Zepbound generated $36.5B combined (56% of total revenue). EPS grew 86%.</p>
+        </div>
+        <div class="detail-box">
+          <h4>Key Drivers</h4>
+          <ul>
+            <li>Mounjaro (diabetes): massive volume growth</li>
+            <li>Zepbound (obesity): +123% revenue YoY</li>
+            <li>Kisunla (Alzheimer's) launch</li>
+            <li>FDA approved GLP-1 pill Foundayo (Apr 2026)</li>
+            <li>AI-accelerated R&amp;D pipeline</li>
+          </ul>
+        </div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">David Ricks</span></td><td><span class="board-role">Chairman &amp; CEO</span></td><td class="board-other">PhRMA; Business Roundtable</td></tr>
+          <tr><td><span class="board-name">Katherine Baicker</span></td><td><span class="board-role">Director</span></td><td class="board-other">University of Chicago Dean; NBER; Aetna/CVS Health board</td></tr>
+          <tr><td><span class="board-name">J. Erik Fyrwald</span></td><td><span class="board-role">Director</span></td><td class="board-other">Former Syngenta CEO; various agri boards</td></tr>
+          <tr><td><span class="board-name">William G. Kaelin Jr.</span></td><td><span class="board-role">Director</span></td><td class="board-other">Nobel Laureate; Dana-Farber Cancer Institute</td></tr>
+          <tr><td><span class="board-name">Marni Morgan Poe</span></td><td><span class="board-role">Director</span></td><td class="board-other">Various legal and compliance advisory roles</td></tr>
+          <tr><td><span class="board-name">Kimberly Reed</span></td><td><span class="board-role">Director</span></td><td class="board-other">Ford Motor Co.; Bank of America (former roles)</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+
+  <!-- META -->
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">03</span>
+      <div class="company-name-block">
+        <div class="company-name">Meta Platforms</div>
+        <div class="company-ticker">META · Technology · Menlo Park, CA</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">+22%</span><span class="lbl">2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">$1.5T+</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box">
+          <h4>Revenue Performance</h4>
+          <div class="growth-bar"><span style="font-size:12px;color:var(--mid);min-width:90px">2025 +22%</span><div class="bar-track"><div class="bar-fill" style="width:40%"></div></div><span class="bar-val">$201B</span></div>
+          <div class="growth-bar"><span style="font-size:12px;color:var(--mid);min-width:90px">2026 est. +25%</span><div class="bar-track"><div class="bar-fill" style="width:45%"></div></div><span class="bar-val">$250B+</span></div>
+          <p style="font-size:12px;color:var(--mid);margin-top:8px">First company to surpass $200B in annual revenue. DAP reached 3.58B users in Dec 2025. Ad impressions up 12% YoY.</p>
+        </div>
+        <div class="detail-box">
+          <h4>Key Drivers</h4>
+          <ul>
+            <li>AI-powered ad targeting (avg price +9%)</li>
+            <li>WhatsApp paid messaging growth</li>
+            <li>Meta Verified subscriptions</li>
+            <li>AI glasses sales growth</li>
+            <li>Instagram Reels monetization</li>
+          </ul>
+        </div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Mark Zuckerberg</span></td><td><span class="board-role">Chairman &amp; CEO</span></td><td class="board-other">Founder; Chan Zuckerberg Initiative</td></tr>
+          <tr><td><span class="board-name">Sheryl Sandberg</span></td><td><span class="board-role">Director (former COO)</span></td><td class="board-other">Leanin.org; various advisory roles</td></tr>
+          <tr><td><span class="board-name">Marc Andreessen</span></td><td><span class="board-role">Director</span></td><td class="board-other">a16z co-founder; Airbnb, various tech companies</td></tr>
+          <tr><td><span class="board-name">Peter Thiel</span></td><td><span class="board-role">Director</span></td><td class="board-other">Founders Fund; Palantir co-founder</td></tr>
+          <tr><td><span class="board-name">Peggy Alford</span></td><td><span class="board-role">Director</span></td><td class="board-other">PayPal (former EVP); various fintech boards</td></tr>
+          <tr><td><span class="board-name">Drew Houston</span></td><td><span class="board-role">Director</span></td><td class="board-other">Dropbox CEO &amp; Founder</td></tr>
+          <tr><td><span class="board-name">Nancy Killefer</span></td><td><span class="board-role">Director</span></td><td class="board-other">McKinsey (former); various corporate boards</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+
+  <!-- BROADCOM -->
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">04</span>
+      <div class="company-name-block">
+        <div class="company-name">Broadcom Inc.</div>
+        <div class="company-ticker">AVGO · Semiconductors · San Jose, CA</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">+24%</span><span class="lbl">FY2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">$900B+</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box">
+          <h4>Revenue Performance</h4>
+          <div class="growth-bar"><span style="font-size:12px;color:var(--mid);min-width:90px">FY2025 +24%</span><div class="bar-track"><div class="bar-fill" style="width:45%"></div></div><span class="bar-val">~$51B</span></div>
+          <div class="growth-bar"><span style="font-size:12px;color:var(--mid);min-width:90px">FY2026 est. +47%</span><div class="bar-track"><div class="bar-fill" style="width:70%"></div></div><span class="bar-val">~$75B</span></div>
+          <p style="font-size:12px;color:var(--mid);margin-top:8px">AI semiconductor revenue up 74% in FY2025. Custom silicon business expected to more than double in FY2026.</p>
+        </div>
+        <div class="detail-box">
+          <h4>Key Drivers</h4>
+          <ul>
+            <li>Custom AI ASICs for hyperscalers</li>
+            <li>Networking &amp; infrastructure chips</li>
+            <li>VMware integration driving software revenue</li>
+            <li>Enterprise switching and routing</li>
+            <li>AI inference chip demand surge</li>
+          </ul>
+        </div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Hock Tan</span></td><td><span class="board-role">President &amp; CEO</span></td><td class="board-other">Founder-operator; various industry groups</td></tr>
+          <tr><td><span class="board-name">Henry Samueli</span></td><td><span class="board-role">CTO &amp; Director</span></td><td class="board-other">Anaheim Ducks owner; UC Irvine benefactor</td></tr>
+          <tr><td><span class="board-name">Eddy Hartenstein</span></td><td><span class="board-role">Director</span></td><td class="board-other">Tribune Media (former); Los Angeles Times</td></tr>
+          <tr><td><span class="board-name">Check Kian Low</span></td><td><span class="board-role">Director</span></td><td class="board-other">GIC (Singapore); various Asian market boards</td></tr>
+          <tr><td><span class="board-name">Justine Page</span></td><td><span class="board-role">Director</span></td><td class="board-other">Private equity and strategic advisory roles</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+
+  <!-- MICROSOFT -->
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">05</span>
+      <div class="company-name-block">
+        <div class="company-name">Microsoft Corporation</div>
+        <div class="company-ticker">MSFT · Technology · Redmond, WA</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~+16%</span><span class="lbl">FY2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">$3T+</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box">
+          <h4>Revenue Performance</h4>
+          <div class="growth-bar"><span style="font-size:12px;color:var(--mid);min-width:90px">FY2025 +16%</span><div class="bar-track"><div class="bar-fill" style="width:35%"></div></div><span class="bar-val">~$280B</span></div>
+          <p style="font-size:12px;color:var(--mid);margin-top:8px">Azure cloud continues gaining enterprise share. Copilot AI integration across Office 365, Dynamics, Windows driving new subscriptions.</p>
+        </div>
+        <div class="detail-box">
+          <h4>Key Drivers</h4>
+          <ul>
+            <li>Azure cloud (AI workloads)</li>
+            <li>Microsoft Copilot monetization</li>
+            <li>GitHub &amp; LinkedIn growth</li>
+            <li>OpenAI partnership leverage</li>
+            <li>Gaming (Activision integration)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Satya Nadella</span></td><td><span class="board-role">Chairman &amp; CEO</span></td><td class="board-other">Starbucks board; Business Roundtable</td></tr>
+          <tr><td><span class="board-name">Reid Hoffman</span></td><td><span class="board-role">Director</span></td><td class="board-other">LinkedIn co-founder; Inflection AI; various AI boards</td></tr>
+          <tr><td><span class="board-name">Penny Pritzker</span></td><td><span class="board-role">Director</span></td><td class="board-other">Former Sec. of Commerce; PSP Partners; various nonprofits</td></tr>
+          <tr><td><span class="board-name">Carlos A. Rodriguez</span></td><td><span class="board-role">Director</span></td><td class="board-other">Former ADP CEO; The Business Council</td></tr>
+          <tr><td><span class="board-name">Charles W. Scharf</span></td><td><span class="board-role">Director</span></td><td class="board-other">Wells Fargo CEO; Business Roundtable</td></tr>
+          <tr><td><span class="board-name">Arne Sorenson</span></td><td><span class="board-role">Director (posthumous seat filled)</span></td><td class="board-other">—</td></tr>
+          <tr><td><span class="board-name">John W. Stanton</span></td><td><span class="board-role">Director</span></td><td class="board-other">Columbia Sportswear; various telecom/media boards</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALPHABET -->
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">06</span>
+      <div class="company-name-block">
+        <div class="company-name">Alphabet Inc. (Google)</div>
+        <div class="company-ticker">GOOGL · Technology · Mountain View, CA</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~+14%</span><span class="lbl">2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">$2T+</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box">
+          <h4>Revenue Performance</h4>
+          <div class="growth-bar"><span style="font-size:12px;color:var(--mid);min-width:90px">2025 ~+14%</span><div class="bar-track"><div class="bar-fill" style="width:32%"></div></div><span class="bar-val">~$380B</span></div>
+          <p style="font-size:12px;color:var(--mid);margin-top:8px">Google Cloud gaining enterprise AI share. Search revenue bolstered by AI Overviews. YouTube advertising growth remains strong.</p>
+        </div>
+        <div class="detail-box">
+          <h4>Key Drivers</h4>
+          <ul>
+            <li>Google Cloud enterprise AI growth</li>
+            <li>Search monetization with Gemini AI</li>
+            <li>YouTube Shorts ad revenue</li>
+            <li>Waymo autonomous vehicle expansion</li>
+            <li>DeepMind health &amp; science applications</li>
+          </ul>
+        </div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Sundar Pichai</span></td><td><span class="board-role">CEO &amp; Director</span></td><td class="board-other">Business Roundtable; US-India Strategic Partnership Forum</td></tr>
+          <tr><td><span class="board-name">Larry Page</span></td><td><span class="board-role">Co-Founder</span></td><td class="board-other">Planetary Ventures; various private investments</td></tr>
+          <tr><td><span class="board-name">Sergey Brin</span></td><td><span class="board-role">Co-Founder</span></td><td class="board-other">Various research and tech investments</td></tr>
+          <tr><td><span class="board-name">John Hennessy</span></td><td><span class="board-role">Chairman</span></td><td class="board-other">Stanford President Emeritus; Cisco (former)</td></tr>
+          <tr><td><span class="board-name">Frances Arnold</span></td><td><span class="board-role">Director</span></td><td class="board-other">Nobel Laureate; Caltech; Gevo board</td></tr>
+          <tr><td><span class="board-name">L. John Doerr</span></td><td><span class="board-role">Director</span></td><td class="board-other">Kleiner Perkins; Amazon, various VC portfolios</td></tr>
+          <tr><td><span class="board-name">Robin Washington</span></td><td><span class="board-role">Director</span></td><td class="board-other">Salesforce; HP Enterprise; Honeywell</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+
+  <!-- AMAZON -->
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">07</span>
+      <div class="company-name-block">
+        <div class="company-name">Amazon.com Inc.</div>
+        <div class="company-ticker">AMZN · Technology/Retail · Seattle, WA</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~+11%</span><span class="lbl">2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">$2T+</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box">
+          <h4>Revenue Performance</h4>
+          <div class="growth-bar"><span style="font-size:12px;color:var(--mid);min-width:90px">2025 ~+11%</span><div class="bar-track"><div class="bar-fill" style="width:30%"></div></div><span class="bar-val">~$710B</span></div>
+          <p style="font-size:12px;color:var(--mid);margin-top:8px">AWS remains the largest cloud provider. CapEx projected at $105B in 2025 for AI infrastructure. Advertising business continues double-digit growth.</p>
+        </div>
+        <div class="detail-box">
+          <h4>Key Drivers</h4>
+          <ul>
+            <li>AWS AI cloud infrastructure growth</li>
+            <li>Amazon Advertising (high-margin)</li>
+            <li>Project Kuiper satellite internet</li>
+            <li>Alexa+ AI assistant launch</li>
+            <li>Healthcare expansion (Amazon Pharmacy)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Andy Jassy</span></td><td><span class="board-role">President &amp; CEO</span></td><td class="board-other">Business Roundtable</td></tr>
+          <tr><td><span class="board-name">Jeff Bezos</span></td><td><span class="board-role">Executive Chairman</span></td><td class="board-other">Blue Origin founder; Washington Post owner</td></tr>
+          <tr><td><span class="board-name">Keith Alexander</span></td><td><span class="board-role">Director</span></td><td class="board-other">IronNet Cybersecurity (founder); NSA (former Director)</td></tr>
+          <tr><td><span class="board-name">Edith Cooper</span></td><td><span class="board-role">Director</span></td><td class="board-other">Goldman Sachs (former); various nonprofit boards</td></tr>
+          <tr><td><span class="board-name">Jamie Gorelick</span></td><td><span class="board-role">Director</span></td><td class="board-other">WilmerHale partner; Duke University; various government advisory</td></tr>
+          <tr><td><span class="board-name">Indra Nooyi</span></td><td><span class="board-role">Director</span></td><td class="board-other">Former PepsiCo CEO; Schlumberger; various advisory boards</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+
+  <!-- APPLE -->
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">08</span>
+      <div class="company-name-block">
+        <div class="company-name">Apple Inc.</div>
+        <div class="company-ticker">AAPL · Technology · Cupertino, CA</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~+5%</span><span class="lbl">FY2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">$3T+</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box">
+          <h4>Revenue Performance</h4>
+          <div class="growth-bar"><span style="font-size:12px;color:var(--mid);min-width:90px">FY2025 ~+5%</span><div class="bar-track"><div class="bar-fill" style="width:18%"></div></div><span class="bar-val">~$410B</span></div>
+          <p style="font-size:12px;color:var(--mid);margin-top:8px">Services segment (App Store, iCloud, Apple TV+) growing ~12% YoY and now represents over 25% of revenue. Apple Intelligence driving iPhone upgrade cycles.</p>
+        </div>
+        <div class="detail-box">
+          <h4>Key Drivers</h4>
+          <ul>
+            <li>Apple Intelligence (AI features) in devices</li>
+            <li>Services segment record revenue</li>
+            <li>India manufacturing expansion</li>
+            <li>Vision Pro ecosystem development</li>
+            <li>Financial services growth</li>
+          </ul>
+        </div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Tim Cook</span></td><td><span class="board-role">CEO &amp; Director</span></td><td class="board-other">Nike board; various advisory councils</td></tr>
+          <tr><td><span class="board-name">Arthur Levinson</span></td><td><span class="board-role">Chairman</span></td><td class="board-other">Calico (CEO); Genentech (former)</td></tr>
+          <tr><td><span class="board-name">Al Gore</span></td><td><span class="board-role">Director</span></td><td class="board-other">Former VP; Generation Investment Mgmt; Kleiner Perkins</td></tr>
+          <tr><td><span class="board-name">James Bell</span></td><td><span class="board-role">Director</span></td><td class="board-other">JPMorgan Chase; Dow Chemical (former CFO)</td></tr>
+          <tr><td><span class="board-name">Monica Lozano</span></td><td><span class="board-role">Director</span></td><td class="board-other">Target Corp.; College Futures Foundation</td></tr>
+          <tr><td><span class="board-name">Ron Sugar</span></td><td><span class="board-role">Director</span></td><td class="board-other">Former Northrop Grumman CEO; Amgen, Chevron</td></tr>
+          <tr><td><span class="board-name">Susan Wagner</span></td><td><span class="board-role">Director</span></td><td class="board-other">BlackRock co-founder; Vanguard board</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+
+  <!-- TSMC -->
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">09</span>
+      <div class="company-name-block">
+        <div class="company-name">TSMC (Taiwan Semiconductor)</div>
+        <div class="company-ticker">TSM · Semiconductors · Hsinchu, Taiwan</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~+30%</span><span class="lbl">2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">$900B+</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box">
+          <h4>Revenue Performance</h4>
+          <div class="growth-bar"><span style="font-size:12px;color:var(--mid);min-width:90px">2025 ~+30%</span><div class="bar-track"><div class="bar-fill" style="width:52%"></div></div><span class="bar-val">~$100B</span></div>
+          <p style="font-size:12px;color:var(--mid);margin-top:8px">World's largest contract chip maker. Expanding US fab operations with $165B planned investment in US manufacturing plants.</p>
+        </div>
+        <div class="detail-box">
+          <h4>Key Drivers</h4>
+          <ul>
+            <li>AI chip manufacturing for Nvidia, Apple</li>
+            <li>3nm &amp; 2nm process technology leadership</li>
+            <li>US fab expansion (Arizona)</li>
+            <li>Geopolitical risk diversification</li>
+            <li>HPC and automotive chip demand</li>
+          </ul>
+        </div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">C.C. Wei</span></td><td><span class="board-role">CEO &amp; Vice Chairman</span></td><td class="board-other">SEMI (industry association); Taiwan business councils</td></tr>
+          <tr><td><span class="board-name">Mark Liu</span></td><td><span class="board-role">Chairman</span></td><td class="board-other">Global Semiconductor Alliance; various industry bodies</td></tr>
+          <tr><td><span class="board-name">Morris Chang</span></td><td><span class="board-role">Founder (advisory)</span></td><td class="board-other">Various Taiwan government advisory roles</td></tr>
+          <tr><td><span class="board-name">Peter Bonfield</span></td><td><span class="board-role">Independent Director</span></td><td class="board-other">Former BT CEO; various UK corporate boards</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+
+  <!-- JPMORGAN -->
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">10</span>
+      <div class="company-name-block">
+        <div class="company-name">JPMorgan Chase &amp; Co.</div>
+        <div class="company-ticker">JPM · Financial Services · New York, NY</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~+9%</span><span class="lbl">2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">$750B+</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box">
+          <h4>Revenue Performance</h4>
+          <div class="growth-bar"><span style="font-size:12px;color:var(--mid);min-width:90px">2025 ~+9%</span><div class="bar-track"><div class="bar-fill" style="width:22%"></div></div><span class="bar-val">~$180B</span></div>
+          <p style="font-size:12px;color:var(--mid);margin-top:8px">Manages $4.8T in assets. Launched JPMD deposit token and partnered with Coinbase on crypto. Leading AI adoption across banking operations.</p>
+        </div>
+        <div class="detail-box">
+          <h4>Key Drivers</h4>
+          <ul>
+            <li>Net interest income from rate environment</li>
+            <li>Investment banking fee recovery</li>
+            <li>AI integration across operations</li>
+            <li>Crypto/digital assets expansion</li>
+            <li>Consumer banking and card growth</li>
+          </ul>
+        </div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Jamie Dimon</span></td><td><span class="board-role">Chairman &amp; CEO</span></td><td class="board-other">Business Roundtable (Chair); various financial advisory</td></tr>
+          <tr><td><span class="board-name">Stephen Burke</span></td><td><span class="board-role">Director</span></td><td class="board-other">Former NBCUniversal CEO; Warren Buffett's Berkshire circle</td></tr>
+          <tr><td><span class="board-name">Todd Combs</span></td><td><span class="board-role">Director</span></td><td class="board-other">Berkshire Hathaway investment manager; GEICO CEO</td></tr>
+          <tr><td><span class="board-name">Linda Bammann</span></td><td><span class="board-role">Director</span></td><td class="board-other">Former JPM risk executive; various financial boards</td></tr>
+          <tr><td><span class="board-name">Mellody Hobson</span></td><td><span class="board-role">Director</span></td><td class="board-other">Ariel Investments (Co-CEO); Starbucks (chair); DreamWorks</td></tr>
+          <tr><td><span class="board-name">Michael Neal</span></td><td><span class="board-role">Director</span></td><td class="board-other">Former GE Capital CEO; various industrial boards</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- =================== SECTION 2: 2025 IPOs =================== -->
+<div class="section" id="ipo2025">
+<div class="container">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2>Notable 2025 IPOs — Companies That Went Public</h2>
+  </div>
+
+  <div class="summary-bar">
+    <div class="summary-item"><span class="s-val">347</span><span class="s-lbl">Total 2025 US IPOs</span></div>
+    <div class="summary-item"><span class="s-val">$76B</span><span class="s-lbl">US Proceeds Raised</span></div>
+    <div class="summary-item"><span class="s-val">+95%</span><span class="s-lbl">vs. 2024</span></div>
+    <div class="summary-item"><span class="s-val">Best</span><span class="s-lbl">Year Since 2021</span></div>
+  </div>
+
+  <p style="font-size:13px;color:var(--mid);margin-bottom:20px;">2025 saw the strongest IPO market in four years. The NYSE hosted 7 of the top 10 largest IPOs. India led by deal count globally; US led by proceeds.</p>
+
+  <div class="ipo-grid">
+
+    <div class="ipo-card">
+      <div class="ipo-num">01</div>
+      <div>
+        <div class="ipo-name">Medline Industries</div>
+        <div class="ipo-sector">Healthcare / Medical Supplies · NASDAQ: MDLN</div>
+        <div class="ipo-desc">Largest IPO of 2025. Leading medical supplies manufacturer and distributor raised $6.26B offering 216M shares at $29. Now trades at ~$34.77B market cap.</div>
+      </div>
+      <div class="ipo-badge">
+        <div class="badge completed">Completed</div>
+        <div class="ipo-val">$6.26B</div>
+        <div class="ipo-val-lbl">Raised</div>
+      </div>
+    </div>
+
+    <div class="ipo-card">
+      <div class="ipo-num">02</div>
+      <div>
+        <div class="ipo-name">Figma Inc.</div>
+        <div class="ipo-sector">Design Software · NYSE: FIG</div>
+        <div class="ipo-desc">Collaborative design platform raised $1.2B+ on NYSE. Achieved $56B+ market cap at listing — largest tech IPO of year at time of listing. Stock surged 255% on opening day.</div>
+      </div>
+      <div class="ipo-badge">
+        <div class="badge completed">Completed</div>
+        <div class="ipo-val">$56B+</div>
+        <div class="ipo-val-lbl">Mkt Cap at IPO</div>
+      </div>
+    </div>
+
+    <div class="ipo-card">
+      <div class="ipo-num">03</div>
+      <div>
+        <div class="ipo-name">CoreWeave</div>
+        <div class="ipo-sector">AI Cloud Infrastructure · NASDAQ: CRWV</div>
+        <div class="ipo-desc">Nvidia-backed AI cloud provider achieved $107.4B enterprise value at listing. One of the most significant AI infrastructure IPOs in history.</div>
+      </div>
+      <div class="ipo-badge">
+        <div class="badge completed">Completed</div>
+        <div class="ipo-val">$107.4B</div>
+        <div class="ipo-val-lbl">Enterprise Value</div>
+      </div>
+    </div>
+
+    <div class="ipo-card">
+      <div class="ipo-num">04</div>
+      <div>
+        <div class="ipo-name">Circle Internet Group</div>
+        <div class="ipo-sector">Crypto / Stablecoin · NYSE: CRCL</div>
+        <div class="ipo-desc">USDC stablecoin issuer debuted at $8.1B valuation; stock surged ~168% to $19.5B market cap. Raised just over $1B. Strengthened Polymarket partnership in Feb 2026.</div>
+      </div>
+      <div class="ipo-badge">
+        <div class="badge completed">Completed</div>
+        <div class="ipo-val">~$19.5B</div>
+        <div class="ipo-val-lbl">Current Mkt Cap</div>
+      </div>
+    </div>
+
+    <div class="ipo-card">
+      <div class="ipo-num">05</div>
+      <div>
+        <div class="ipo-name">Klarna Group</div>
+        <div class="ipo-sector">Fintech / BNPL · NYSE: KLAR</div>
+        <div class="ipo-desc">Swedish buy-now-pay-later fintech listed on NYSE, one of the year's most anticipated fintech IPOs. Signaled a rebound for consumer fintech listings.</div>
+      </div>
+      <div class="ipo-badge">
+        <div class="badge completed">Completed</div>
+        <div class="ipo-val">NYSE</div>
+        <div class="ipo-val-lbl">Exchange</div>
+      </div>
+    </div>
+
+    <div class="ipo-card">
+      <div class="ipo-num">06</div>
+      <div>
+        <div class="ipo-name">Venture Global LNG</div>
+        <div class="ipo-sector">Energy / LNG · NYSE</div>
+        <div class="ipo-desc">Largest energy-related IPO in years. LNG leader raised massive capital through NYSE; stock has struggled post-IPO but remains one of the highest-valued energy IPOs of the decade.</div>
+      </div>
+      <div class="ipo-badge">
+        <div class="badge completed">Completed</div>
+        <div class="ipo-val">Energy</div>
+        <div class="ipo-val-lbl">Sector</div>
+      </div>
+    </div>
+
+    <div class="ipo-card">
+      <div class="ipo-num">07</div>
+      <div>
+        <div class="ipo-name">SailPoint Technologies</div>
+        <div class="ipo-sector">Cybersecurity / Identity · NASDAQ: SAIL</div>
+        <div class="ipo-desc">Identity security management company debuted with $12.4B market cap. A standout in a year of strong enterprise software listings.</div>
+      </div>
+      <div class="ipo-badge">
+        <div class="badge completed">Completed</div>
+        <div class="ipo-val">$12.4B</div>
+        <div class="ipo-val-lbl">Mkt Cap at IPO</div>
+      </div>
+    </div>
+
+    <div class="ipo-card">
+      <div class="ipo-num">08</div>
+      <div>
+        <div class="ipo-name">Caris Life Sciences</div>
+        <div class="ipo-sector">AI Healthcare / Diagnostics</div>
+        <div class="ipo-desc">AI-driven cancer diagnostics company debuted at $6B valuation. Reported 113% YoY revenue growth in Q3. One of the strongest-growth healthcare IPOs of the year.</div>
+      </div>
+      <div class="ipo-badge">
+        <div class="badge completed">Completed</div>
+        <div class="ipo-val">$6B</div>
+        <div class="ipo-val-lbl">Valuation at IPO</div>
+      </div>
+    </div>
+
+    <div class="ipo-card">
+      <div class="ipo-num">09</div>
+      <div>
+        <div class="ipo-name">Chime Financial</div>
+        <div class="ipo-sector">Digital Banking · NASDAQ: CHYM</div>
+        <div class="ipo-desc">Digital banking fintech listed at $12.5B market cap at $27/share. Heralded a broader rebound for consumer fintech after years of suppressed valuations.</div>
+      </div>
+      <div class="ipo-badge">
+        <div class="badge completed">Completed</div>
+        <div class="ipo-val">$12.5B</div>
+        <div class="ipo-val-lbl">Mkt Cap at IPO</div>
+      </div>
+    </div>
+
+    <div class="ipo-card">
+      <div class="ipo-num">10</div>
+      <div>
+        <div class="ipo-name">Aura Minerals</div>
+        <div class="ipo-sector">Mining · Global / TSX</div>
+        <div class="ipo-desc">Canadian mining firm raised $196.4M in July. Stock surged ~92% post-IPO to ~$3.9B market cap — one of the top percentage performers of any 2025 IPO.</div>
+      </div>
+      <div class="ipo-badge">
+        <div class="badge completed">Completed</div>
+        <div class="ipo-val">+92%</div>
+        <div class="ipo-val-lbl">Post-IPO Return</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- =================== SECTION 3: 2026 IPO PIPELINE =================== -->
+<div class="section" id="ipo2026">
+<div class="container">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2>2026 IPO Pipeline — Expected Listings</h2>
+  </div>
+
+  <div class="summary-bar">
+    <div class="summary-item"><span class="s-val">800+</span><span class="s-lbl">Unicorns Waiting</span></div>
+    <div class="summary-item"><span class="s-val">$1T+</span><span class="s-lbl">SpaceX Est. Val.</span></div>
+    <div class="summary-item"><span class="s-val">$730B</span><span class="s-lbl">OpenAI Est. Val.</span></div>
+    <div class="summary-item"><span class="s-val">$380B</span><span class="s-lbl">Anthropic Priv. Val.</span></div>
+  </div>
+
+  <p style="font-size:13px;color:var(--mid);margin-bottom:20px;">2026 IPO pipeline is dominated by AI companies. Market watchers anticipate potentially the largest IPO in history (SpaceX) and multiple "centicorn" ($100B+) debuts. Note: tariff uncertainty and market volatility in Q1 2026 have slowed the early pipeline.</p>
+
+  <div class="ipo-grid">
+
+    <div class="ipo-card">
+      <div class="ipo-num">01</div>
+      <div>
+        <div class="ipo-name">SpaceX</div>
+        <div class="ipo-sector">Aerospace / AI Infrastructure</div>
+        <div class="ipo-desc">Confidentially filed with SEC on April 1, 2026. Seeks valuation of up to $2T — potentially the largest IPO in history, raising ~$75B. Known for Starlink internet, rocket launches, and planned orbital data centers.</div>
+      </div>
+      <div class="ipo-badge">
+        <div class="badge filed">Filed</div>
+        <div class="ipo-val">~$2T</div>
+        <div class="ipo-val-lbl">Target Valuation</div>
+      </div>
+    </div>
+
+    <div class="ipo-card">
+      <div class="ipo-num">02</div>
+      <div>
+        <div class="ipo-name">OpenAI</div>
+        <div class="ipo-sector">Artificial Intelligence / ChatGPT</div>
+        <div class="ipo-desc">World's most closely watched IPO. Valued at $852B pre-money after $110B raise from SoftBank, Amazon, and Nvidia. Targeting Q4 2026 listing. Cash burn estimated at $14B in 2026; break-even projected ~2030.</div>
+      </div>
+      <div class="ipo-badge">
+        <div class="badge expected">Expected</div>
+        <div class="ipo-val">$730B–$1T</div>
+        <div class="ipo-val-lbl">Est. Valuation</div>
+      </div>
+    </div>
+
+    <div class="ipo-card">
+      <div class="ipo-num">03</div>
+      <div>
+        <div class="ipo-name">Anthropic</div>
+        <div class="ipo-sector">AI Safety / Claude AI</div>
+        <div class="ipo-desc">Creator of Claude AI models. Hired Wilson Sonsini law firm to prepare for IPO. Raised $18.3B in Sept 2025; private valuation surged to $380B. Prediction markets give 62% odds of 2026 IPO. Could beat OpenAI to market.</div>
+      </div>
+      <div class="ipo-badge">
+        <div class="badge expected">Expected</div>
+        <div class="ipo-val">$380B+</div>
+        <div class="ipo-val-lbl">Private Valuation</div>
+      </div>
+    </div>
+
+    <div class="ipo-card">
+      <div class="ipo-num">04</div>
+      <div>
+        <div class="ipo-name">Databricks</div>
+        <div class="ipo-sector">AI Data Platforms / Enterprise</div>
+        <div class="ipo-desc">Data analytics firm with $4.8B revenue run rate growing 55% YoY. Raised at $134B valuation. Free-cash-flow positive. CEO says ready to IPO, waiting for right moment. High probability 2026 event.</div>
+      </div>
+      <div class="ipo-badge">
+        <div class="badge expected">Expected</div>
+        <div class="ipo-val">$134B</div>
+        <div class="ipo-val-lbl">Private Valuation</div>
+      </div>
+    </div>
+
+    <div class="ipo-card">
+      <div class="ipo-num">05</div>
+      <div>
+        <div class="ipo-name">Cerebras Systems</div>
+        <div class="ipo-sector">AI Chips / Wafer-Scale Computing</div>
+        <div class="ipo-desc">AI chipmaker with wafer-scale chips reportedly 20x faster than Nvidia for inference. S-1 filed April 17, 2026; May IPO anticipated. Raised at $23B valuation. $10B OpenAI compute deal through 2028. Target: $35B+ market cap.</div>
+      </div>
+      <div class="ipo-badge">
+        <div class="badge filed">Filed S-1</div>
+        <div class="ipo-val">$35B+</div>
+        <div class="ipo-val-lbl">Expected Mkt Cap</div>
+      </div>
+    </div>
+
+    <div class="ipo-card">
+      <div class="ipo-num">06</div>
+      <div>
+        <div class="ipo-name">Canva</div>
+        <div class="ipo-sector">Design Software / SaaS · Australia</div>
+        <div class="ipo-desc">Sydney-based design platform with 240M monthly users and $3.3B annualized revenue. Valued at $42B in latest funding. Competitor Figma's successful IPO validates the path to public markets.</div>
+      </div>
+      <div class="ipo-badge">
+        <div class="badge expected">Expected</div>
+        <div class="ipo-val">$42B</div>
+        <div class="ipo-val-lbl">Private Valuation</div>
+      </div>
+    </div>
+
+    <div class="ipo-card">
+      <div class="ipo-num">07</div>
+      <div>
+        <div class="ipo-name">Stripe</div>
+        <div class="ipo-sector">Fintech / Payments Infrastructure</div>
+        <div class="ipo-desc">Processes trillions in annual payments. One of the most valuable private fintechs globally. Founders have historically been cautious; timing remains uncertain but investor pressure mounting.</div>
+      </div>
+      <div class="ipo-badge">
+        <div class="badge expected">Possible</div>
+        <div class="ipo-val">$70B+</div>
+        <div class="ipo-val-lbl">Est. Valuation</div>
+      </div>
+    </div>
+
+    <div class="ipo-card">
+      <div class="ipo-num">08</div>
+      <div>
+        <div class="ipo-name">X-Energy</div>
+        <div class="ipo-sector">Nuclear / Small Modular Reactors</div>
+        <div class="ipo-desc">Filed for IPO March 20, 2026. XE-100 pebble-bed reactor for clean energy. Backed by Dept. of Energy and partnerships with Dow Chemical. Positioned to benefit from surging electricity demand from AI data centers.</div>
+      </div>
+      <div class="ipo-badge">
+        <div class="badge filed">Filed</div>
+        <div class="ipo-val">SMR</div>
+        <div class="ipo-val-lbl">Nuclear Tech</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- =================== SECTION 4: TRENDS =================== -->
+<div class="section" id="trends">
+<div class="container">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2>Key Market Trends — Week of April 24, 2026</h2>
+  </div>
+
+  <p style="font-size:13px;color:var(--mid);margin-bottom:20px;">Macro themes shaping growth companies and the IPO pipeline. <b>Issue No. 2 — Week of April 27–May 1, 2026:</b> The biggest earnings week of the year just concluded. Use these insights for your downstream trend analysis reports.</p>
+
+  <div class="trend-card" style="border-left-color: var(--accent);">
+    <h3>🔴 THIS WEEK: Magnificent 5 Earnings — Every Single One Beat</h3>
+    <p><b>The biggest earnings week of the year delivered no disappointments.</b> Meta: $56.3B revenue (+33% YoY, beat by $800M). Microsoft: $82.9B (+18%, Azure +40%). Alphabet: $109.9B (+22%), Google Cloud +63% to $20B — blowing past estimates. Amazon: $181.5B (+17%), AWS +28% fastest growth in 15 quarters. Apple: $111.2B (+17%), best March quarter ever — Tim Cook announced retirement; John Ternus takes over as CEO September 1. Combined capex guidance from just these five companies: <b>over $650 billion</b> for AI infrastructure in 2026.</p>
+  </div>
+
+  <div class="trend-card">
+    <h3>🤖 AI Infrastructure Is the Dominant Investment Theme</h3>
+    <p>Every major growth company is either building AI infrastructure (Nvidia, TSMC, Broadcom) or deploying it at scale (Meta, Microsoft, Google, Amazon). Nvidia is now the world's most valuable company at $4.6T. The 2026 IPO pipeline remains overwhelmingly AI-centric: Cerebras S-1 filed April 17 with May IPO expected, SpaceX filed confidentially, OpenAI and Anthropic watching market conditions for H2 2026 debuts.</p>
+  </div>
+
+  <div class="trend-card">
+    <h3>💊 GLP-1 Drugs Are a Once-in-a-Generation Healthcare Catalyst</h3>
+    <p>Eli Lilly's 45% revenue growth — nearly unheard of at $65B scale — is driven entirely by Mounjaro and Zepbound. The FDA approval of the first GLP-1 pill (Foundayo) in April 2026 opens an even larger addressable market. Analysts project $80-83B in 2026 Lilly revenue. Expect continued board-level cross-pollination between pharma, biotech, and tech as obesity/diabetes platforms converge with AI drug discovery.</p>
+  </div>
+
+  <div class="trend-card">
+    <h3>📈 IPO Market Fully Revived After 3-Year Drought</h3>
+    <p>2025 delivered 347 US IPOs with $76B in proceeds — 95% more than 2024 and the best year since 2021. However, Q1 2026 has been subdued due to tariff uncertainty, inflation lingering, and geopolitical tensions. Market watchers are watching SpaceX and Anthropic as potential "unlocking" events that could trigger a wave of $100B+ IPOs.</p>
+  </div>
+
+  <div class="trend-card">
+    <h3>🔗 Board Interlocks: The AI Power Network</h3>
+    <p>A notable pattern across this report: directors serve simultaneously on multiple major boards, creating a dense network of shared governance. Reid Hoffman (Microsoft + a16z + Inflection AI), Marc Andreessen (Meta + a16z portfolio), Todd Combs (JPMorgan + Berkshire), and L. John Doerr (Alphabet + Amazon + Kleiner Perkins) are key nodes. This interlocking board structure means AI investment strategy is coordinated — sometimes across competitors — at the most senior levels.</p>
+  </div>
+
+  <div class="trend-card">
+    <h3>🌏 Geopolitical Risk: TSMC, Tariffs &amp; Chip Supply Chains</h3>
+    <p>TSMC's $165B US investment reflects supply-chain resilience concerns. Export restrictions on AI chips continue affecting Chinese tech companies. Tariff uncertainty is the primary headwind for growth stock valuations in early 2026, with value stocks outperforming growth in Q1 2026. The Federal Reserve's rate-cut cycle is a tailwind expected to benefit growth stocks in H2 2026.</p>
+  </div>
+
+  <div class="trend-card">
+    <h3>💰 Crypto &amp; Digital Finance Legitimized</h3>
+    <p>Circle's 168% post-IPO surge, JPMorgan's JPMD deposit token launch, and Coinbase partnership signal crypto is entering institutional mainstream. The 2026 IPO pipeline includes multiple digital finance companies. Stablecoins are becoming critical financial infrastructure, with Circle's USDC underpinning prediction markets and institutional settlement.</p>
+  </div>
+
+  <div class="trend-card">
+    <h3>⚡ Energy Demand Surge from AI Data Centers</h3>
+    <p>AI data centers are driving unprecedented electricity demand, creating a secondary growth boom in energy infrastructure. X-Energy's nuclear SMR IPO, Venture Global LNG, and utilities are major beneficiaries. This connects directly to the board-level activity at tech companies, which are making 20-30 year energy infrastructure commitments to secure power for their AI buildout.</p>
+  </div>
+
+
+</div>
+</div>
+
+<!-- SECTION 5: EDUCATION -->
+<div class="section" id="education">
+<div class="container">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <h2>Top 20 Global Education Companies</h2>
+  </div>
+  <div class="summary-bar">
+    <div class="summary-item"><span class="s-val">$5.8T</span><span class="s-lbl">Global Ed Market</span></div>
+    <div class="summary-item"><span class="s-val">$880B</span><span class="s-lbl">Online Ed by 2033</span></div>
+    <div class="summary-item"><span class="s-val">+11.7%</span><span class="s-lbl">Online Ed CAGR</span></div>
+    <div class="summary-item"><span class="s-val">#1</span><span class="s-lbl">Duolingo Global Rank</span></div>
+  </div>
+  <p style="font-size:13px;color:var(--mid);margin-bottom:20px;">Ranked by combination of revenue growth rate and market capitalization. Includes public and notable private companies. Tap each company to expand board members and cross-board data. Source: TIME/Statista 2025 EdTech Rankings, SEC filings.</p>
+
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">01</span>
+      <div class="company-name-block">
+        <div class="company-name">Duolingo</div>
+        <div class="company-ticker">DUOL · EdTech / Language Learning · Pittsburgh, PA</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">+40%+</span><span class="lbl">2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">~$16B</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>113M+ monthly active users. Revenue $750M+. Ranked #1 globally by TIME/Statista 2025. Gamified language learning in 40+ languages across 190+ countries.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>AI-powered personalized learning paths</li><li>Duolingo Max (GPT-4 powered premium tier)</li><li>80M+ monthly active users globally</li><li>Subscription revenue (Duolingo Plus) growth</li><li>Expanding into math and music</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Luis von Ahn</span></td><td><span class="board-role">CEO &amp; Co-Founder</span></td><td class="board-other">Carnegie Mellon advisor; MacArthur Fellow</td></tr><tr><td><span class="board-name">Daphne Koller</span></td><td><span class="board-role">Director</span></td><td class="board-other">insitro (CEO); Coursera co-founder; Google Brain</td></tr><tr><td><span class="board-name">Nikesh Arora</span></td><td><span class="board-role">Director</span></td><td class="board-other">Palo Alto Networks (CEO); SoftBank (former); Google (former)</td></tr><tr><td><span class="board-name">Donn Davis</span></td><td><span class="board-role">Director</span></td><td class="board-other">Revolution Growth; various consumer tech boards</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">02</span>
+      <div class="company-name-block">
+        <div class="company-name">Stride Inc.</div>
+        <div class="company-ticker">LRN · K-12 Online Education · Herndon, VA</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">+17.9%</span><span class="lbl">FY2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">~$5B</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>FY2025 revenue $2.41B (+17.9%). 234K average enrollments (+20.4%). Career Learning +27.4%. Middle/High School +34.6%.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Virtual K-12 public school enrollment surge</li><li>Career learning programs +27% revenue growth</li><li>Post-pandemic online schooling adoption</li><li>Adult learning business expansion</li><li>AI-assisted curriculum delivery</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">James Rhyu</span></td><td><span class="board-role">CEO &amp; Director</span></td><td class="board-other">Various education advisory boards</td></tr><tr><td><span class="board-name">Nathaniel Davis</span></td><td><span class="board-role">Chairman</span></td><td class="board-other">Various tech and education boards</td></tr><tr><td><span class="board-name">Guillermo Bron</span></td><td><span class="board-role">Director</span></td><td class="board-other">Lakeshore Learning; private equity education</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">03</span>
+      <div class="company-name-block">
+        <div class="company-name">Coursera Inc.</div>
+        <div class="company-ticker">COUR · Online Higher Ed · Mountain View, CA</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~+12%</span><span class="lbl">2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">~$2B</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>120M+ learners in 190+ countries. Top 20 TIME/Statista EdTech. Revenue ~$700M+. 300+ university and company partners globally.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>AI and data science course demand surge</li><li>Enterprise workforce upskilling contracts</li><li>Government partnerships (India, Egypt)</li><li>Coursera for Campus expansion</li><li>Degree programs with top universities</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Greg Hart</span></td><td><span class="board-role">CEO &amp; Director</span></td><td class="board-other">Various tech advisory roles</td></tr><tr><td><span class="board-name">Daphne Koller</span></td><td><span class="board-role">Co-Founder (advisor)</span></td><td class="board-other">insitro CEO; Duolingo board; Google Brain</td></tr><tr><td><span class="board-name">Andrew Ng</span></td><td><span class="board-role">Co-Founder (advisor)</span></td><td class="board-other">DeepLearning.AI; Landing AI; Google Brain (former)</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">04</span>
+      <div class="company-name-block">
+        <div class="company-name">Pearson PLC</div>
+        <div class="company-ticker">PSO · Educational Publishing · London, UK</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~+4%</span><span class="lbl">2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">~$9B</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>World's largest education company by revenue (~£4B). Pivoting from print to digital-first. Pearson+ subscription, assessment services driving growth.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Pearson+ digital subscription platform</li><li>AI-driven assessment tools</li><li>Workforce skills and credentialing</li><li>Virtual learning environment expansion</li><li>English language learning globally</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Omar Abbosh</span></td><td><span class="board-role">CEO &amp; Director</span></td><td class="board-other">Various tech and education advisory boards</td></tr><tr><td><span class="board-name">Colin Day</span></td><td><span class="board-role">Chairman</span></td><td class="board-other">Various UK corporate boards</td></tr><tr><td><span class="board-name">Sherry Coutu</span></td><td><span class="board-role">Director</span></td><td class="board-other">Raspberry Pi; ScaleUp Institute; UK tech</td></tr><tr><td><span class="board-name">Tim Score</span></td><td><span class="board-role">Director</span></td><td class="board-other">British Land; ARM Holdings (former CFO)</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">05</span>
+      <div class="company-name-block">
+        <div class="company-name">TAL Education Group</div>
+        <div class="company-ticker">TAL · K-12 Tutoring · Beijing, China</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">Recovery</span><span class="lbl">Post-Regulation</span></div>
+        <div class="stat-pill"><span class="val">~$8B</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>Recovering strongly after China's 2021 regulations. Pivoted to AI learning devices and non-regulated subjects. Strong brand recognition across China.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>AI learning devices (Xueersi hardware)</li><li>Non-regulated science/tech courses</li><li>Overseas education expansion</li><li>AI-powered tutoring technology</li><li>China education market recovery</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Zhang Bangxin</span></td><td><span class="board-role">CEO &amp; Founder</span></td><td class="board-other">Various China education and AI advisory roles</td></tr><tr><td><span class="board-name">Yunfeng Bai</span></td><td><span class="board-role">Director</span></td><td class="board-other">Chinese tech and education boards</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">06</span>
+      <div class="company-name-block">
+        <div class="company-name">New Oriental Education</div>
+        <div class="company-ticker">EDU · Education Services · Beijing, China</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">+30%+</span><span class="lbl">Revenue Recovery</span></div>
+        <div class="stat-pill"><span class="val">~$10B</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>China's largest private education company. Pivoted to study abroad consulting, adult ed, and live-streaming e-commerce (Dongfang Zhenxuan). Surprise revenue hit.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Study abroad counseling demand</li><li>Adult language and skills training</li><li>Dongfang Zhenxuan live-streaming commerce</li><li>Overseas test prep (TOEFL, IELTS, GRE)</li><li>Non-regulated K-12 subjects</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Michael Yu</span></td><td><span class="board-role">Executive Chairman &amp; Founder</span></td><td class="board-other">Various China education sector boards</td></tr><tr><td><span class="board-name">Chenggang Zhou</span></td><td><span class="board-role">CEO &amp; Director</span></td><td class="board-other">China educational advisory bodies</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">07</span>
+      <div class="company-name-block">
+        <div class="company-name">Instructure Holdings</div>
+        <div class="company-ticker">INST · Learning Management · Salt Lake City, UT</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~+10%</span><span class="lbl">2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">~$4B</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>Canvas LMS used by 30M+ students globally. Dominant in higher education and K-12. Named to TIME/Statista top EdTech 2025. High-retention SaaS model.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Canvas LMS market dominance</li><li>AI-powered grading and assessment tools</li><li>Mastery Connect acquisition integration</li><li>International expansion</li><li>Enterprise credential and badge system</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Steve Daly</span></td><td><span class="board-role">CEO &amp; Director</span></td><td class="board-other">Various SaaS and education tech boards</td></tr><tr><td><span class="board-name">Paul Bhatt</span></td><td><span class="board-role">Director</span></td><td class="board-other">Thoma Bravo portfolio; various SaaS boards</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">08</span>
+      <div class="company-name-block">
+        <div class="company-name">BYJU'S (Think &amp; Learn)</div>
+        <div class="company-ticker">Private · EdTech · Bangalore, India</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">Restructuring</span><span class="lbl">Status</span></div>
+        <div class="stat-pill"><span class="val">~$1B</span><span class="lbl">Est. Val. (Down)</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>Once valued at $22B, undergoing major restructuring. 150M+ registered students in India. Founder working to revive. Potential acquisition or comeback story.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>150M+ registered students in India</li><li>K-12 supplemental learning platform</li><li>WhiteHatJr coding education (subsidiary)</li><li>Aakash Educational Services (test prep)</li><li>Potential acquisition or restructuring deal</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Byju Raveendran</span></td><td><span class="board-role">Founder &amp; CEO</span></td><td class="board-other">Working to revive company amid debt restructuring</td></tr><tr><td><span class="board-name">Divya Gokulnath</span></td><td><span class="board-role">Co-Founder</span></td><td class="board-other">Education advocacy and curriculum design</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">09</span>
+      <div class="company-name-block">
+        <div class="company-name">Kahoot!</div>
+        <div class="company-ticker">Private (delisted 2023) · Game-Based Learning · Oslo, Norway</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">300M+</span><span class="lbl">Annual Users</span></div>
+        <div class="stat-pill"><span class="val">~$1.5B</span><span class="lbl">Est. Val.</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>Top 5 TIME/Statista EdTech 2025. Taken private by Goldman Sachs in 2023. 300M+ annual users in 200+ countries. Strong enterprise and classroom adoption.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>#1 K-12 classroom engagement tool globally</li><li>Kahoot! at Work corporate training</li><li>AI quiz generation tools</li><li>Publisher partnerships</li><li>APAC market expansion</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Aasmund Furuseth</span></td><td><span class="board-role">CEO</span></td><td class="board-other">Former Schibsted executive; Nordic tech boards</td></tr><tr><td><span class="board-name">Goldman Sachs Alternatives</span></td><td><span class="board-role">Owner (majority)</span></td><td class="board-other">Controlling shareholder since 2023 take-private</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">10</span>
+      <div class="company-name-block">
+        <div class="company-name">Udemy Inc.</div>
+        <div class="company-ticker">UDMY · Online Skills Learning · San Francisco, CA</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~+8%</span><span class="lbl">2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">~$2B</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>220,000+ courses; 73,000+ instructors; 62M+ learners globally. Udemy Business enterprise growing fastest. Revenue ~$775M. Improving margins as enterprise mix increases.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Udemy Business enterprise subscription</li><li>AI/tech course catalogue dominance</li><li>Corporate upskilling contracts</li><li>Instructor marketplace model</li><li>Global reach in 180+ countries</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Greg Brown</span></td><td><span class="board-role">CEO &amp; Director</span></td><td class="board-other">Various SaaS and learning tech boards</td></tr><tr><td><span class="board-name">Tracey Newell</span></td><td><span class="board-role">Director</span></td><td class="board-other">Informatica (former President); enterprise SaaS</td></tr><tr><td><span class="board-name">Yvonne Wassenaar</span></td><td><span class="board-role">Director</span></td><td class="board-other">Airware (former CEO); enterprise tech</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">11</span>
+      <div class="company-name-block">
+        <div class="company-name">Chegg Inc.</div>
+        <div class="company-ticker">CHGG · Student Services / AI Tutoring · Santa Clara, CA</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">Declining</span><span class="lbl">Subscriber Trend</span></div>
+        <div class="stat-pill"><span class="val">-75%+ from Peak</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>Revenue down 24% in 2025 due to AI disruption (ChatGPT). Still top 10 TIME/Statista due to historical scale. Suing Google over AI Overviews. Pivoting to Chegg AI platform.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>AI tutoring pivot (Chegg AI)</li><li>Textbook rental legacy declining</li><li>Google AI Overviews lawsuit ongoing</li><li>International student market</li><li>Skills-based learning pivot</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Nathan Schultz</span></td><td><span class="board-role">CEO &amp; Director</span></td><td class="board-other">Various ed-tech advisory roles</td></tr><tr><td><span class="board-name">Dan Rosensweig</span></td><td><span class="board-role">Executive Chairman</span></td><td class="board-other">Former CEO; Yahoo (former); Guitar Hero (former)</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">12</span>
+      <div class="company-name-block">
+        <div class="company-name">Grand Canyon Education</div>
+        <div class="company-ticker">LOPE · Higher Ed Services · Phoenix, AZ</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~+8%</span><span class="lbl">2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">~$4B</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>Provides education services to Grand Canyon University and partner universities. Revenue $1B+. High-margin, capital-light model. Consistent profitability and strong free cash flow.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Online degree program expansion</li><li>Partner university service contracts</li><li>Adult and working learner focus</li><li>Healthcare and education degree demand</li><li>Consistent enrollment growth</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Brian Mueller</span></td><td><span class="board-role">CEO &amp; Chairman</span></td><td class="board-other">Arizona higher education advisory boards</td></tr><tr><td><span class="board-name">Brent Richardson</span></td><td><span class="board-role">Director</span></td><td class="board-other">Various higher education boards</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">13</span>
+      <div class="company-name-block">
+        <div class="company-name">2U Inc.</div>
+        <div class="company-ticker">TWOU · Online Program Management · Lanham, MD</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">Restructuring</span><span class="lbl">Status</span></div>
+        <div class="stat-pill"><span class="val">~$200M</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>Partners with Harvard, Yale, Johns Hopkins for online degrees. Acquired edX for $800M. Revenue ~$900M but facing debt restructuring. edX has 46M+ registered learners.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>edX platform (46M+ learners)</li><li>University partner degree programs</li><li>Corporate training partnerships</li><li>AI course integration</li><li>Debt restructuring outcome</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Paul Lalljie</span></td><td><span class="board-role">CEO &amp; Director</span></td><td class="board-other">Various higher education and tech boards</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">14</span>
+      <div class="company-name-block">
+        <div class="company-name">PowerSchool Holdings</div>
+        <div class="company-ticker">Acquired by Bain Capital (2024) · K-12 SaaS · Folsom, CA</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">Private</span><span class="lbl">Status</span></div>
+        <div class="stat-pill"><span class="val">~$5.6B</span><span class="lbl">Acquisition Val.</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>K-12 platform used by 75M+ students globally. Taken private by Bain Capital 2024 for $5.6B. Student information systems, LMS, analytics. 18,000+ school clients.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Student information system dominance</li><li>AI-powered learning analytics</li><li>Unified K-12 platform strategy</li><li>International school market expansion</li><li>High recurring SaaS revenue</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Hardeep Gulati</span></td><td><span class="board-role">CEO</span></td><td class="board-other">Various K-12 ed-tech advisory roles</td></tr><tr><td><span class="board-name">Bain Capital</span></td><td><span class="board-role">Owner</span></td><td class="board-other">Controlling shareholder since $5.6B take-private</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">15</span>
+      <div class="company-name-block">
+        <div class="company-name">Skillsoft Corp.</div>
+        <div class="company-ticker">SKIL · Corporate Learning · Nashua, NH</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~$500M</span><span class="lbl">Annual Revenue</span></div>
+        <div class="stat-pill"><span class="val">~$300M</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>90M+ learners globally. Percipio AI-powered learning platform. Includes Codecademy. Strong in compliance, leadership, and tech upskilling for Fortune 500 enterprises.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Percipio AI learning experience platform</li><li>Codecademy coding education</li><li>Enterprise compliance training</li><li>Leadership development programmes</li><li>Tech skills gap for enterprise clients</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Ron Hovsepian</span></td><td><span class="board-role">Executive Chairman</span></td><td class="board-other">Various enterprise SaaS boards</td></tr><tr><td><span class="board-name">Jeffrey Tarr</span></td><td><span class="board-role">CEO &amp; Director</span></td><td class="board-other">Various enterprise software boards</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">16</span>
+      <div class="company-name-block">
+        <div class="company-name">Bright Horizons Family Solutions</div>
+        <div class="company-ticker">BFAM · Early Education &amp; Care · Newton, MA</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~+10%</span><span class="lbl">2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">~$5B</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>1,000+ employer-sponsored childcare centers in US, UK, Netherlands, India. Revenue ~$2.5B. Growing as companies expand childcare benefits to attract and retain workers.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Employer-sponsored childcare demand</li><li>EdAssist tuition assistance platform</li><li>UK and international expansion</li><li>Return-to-office childcare need</li><li>Healthcare worker benefit programs</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Stephen Kramer</span></td><td><span class="board-role">CEO &amp; Director</span></td><td class="board-other">Early childhood advisory bodies</td></tr><tr><td><span class="board-name">Jordan Hitch</span></td><td><span class="board-role">Director</span></td><td class="board-other">Bain Capital; various portfolio boards</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">17</span>
+      <div class="company-name-block">
+        <div class="company-name">Go1</div>
+        <div class="company-ticker">Private · Corporate Learning Content · Brisbane, Australia</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~$1.5B</span><span class="lbl">Valuation</span></div>
+        <div class="stat-pill"><span class="val">Top 20</span><span class="lbl">TIME EdTech 2025</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>Corporate learning marketplace with 100,000+ courses from 250+ providers. Backed by Microsoft, Google, Salesforce Ventures. Strong in US, UK, Australia.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Microsoft Teams and Salesforce integrations</li><li>Learning content marketplace model</li><li>AI-powered content curation</li><li>Enterprise LMS integration</li><li>Backed by major tech companies</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Andrew Barnes</span></td><td><span class="board-role">CEO &amp; Co-Founder</span></td><td class="board-other">Australian and US tech boards</td></tr><tr><td><span class="board-name">Chris Hood</span></td><td><span class="board-role">Co-Founder</span></td><td class="board-other">EdTech advisory roles</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">18</span>
+      <div class="company-name-block">
+        <div class="company-name">Degreed</div>
+        <div class="company-ticker">Private · Workforce Learning Platform · Oakland, CA</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~$1.4B</span><span class="lbl">Valuation</span></div>
+        <div class="stat-pill"><span class="val">Top 20</span><span class="lbl">TIME EdTech 2025</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>Workforce learning and skills intelligence for Fortune 500. Tracks all learning to build employee skill profiles. TIME/Statista top 20 EdTech 2025.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Skills-based workforce planning</li><li>Enterprise talent intelligence</li><li>AI-powered learning pathways</li><li>LinkedIn, Coursera, Udemy integrations</li><li>Fortune 500 enterprise clients</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Chris McCarthy</span></td><td><span class="board-role">CEO</span></td><td class="board-other">Workforce and HR tech boards</td></tr><tr><td><span class="board-name">David Blake</span></td><td><span class="board-role">Co-Founder</span></td><td class="board-other">EdTech and skills economy advisory</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">19</span>
+      <div class="company-name-block">
+        <div class="company-name">Renaissance Learning</div>
+        <div class="company-ticker">Private · K-12 Assessment · Wisconsin Rapids, WI</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~$5B</span><span class="lbl">Est. Valuation</span></div>
+        <div class="stat-pill"><span class="val">18M+</span><span class="lbl">Students Served</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>Accelerated Reader, Star Assessments used by 18M+ students in 40+ countries. Owned by Francisco Partners. Revenue ~$600M+. High recurring school district subscriptions.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Star Reading/Math assessment tools</li><li>Accelerated Reader program</li><li>AI adaptive practice platform</li><li>Federal education funding recipient</li><li>International K-12 expansion</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Todd Brekhus</span></td><td><span class="board-role">CEO</span></td><td class="board-other">K-12 education advisory boards</td></tr><tr><td><span class="board-name">Francisco Partners</span></td><td><span class="board-role">Owner</span></td><td class="board-other">Major private equity ed-tech investor</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">20</span>
+      <div class="company-name-block">
+        <div class="company-name">Age of Learning (ABCmouse)</div>
+        <div class="company-ticker">Private · Early Childhood EdTech · Glendale, CA</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~$1B</span><span class="lbl">Est. Valuation</span></div>
+        <div class="stat-pill"><span class="val">10M+</span><span class="lbl">Active Subscribers</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>#1 early learning app for ages 2-8. 10M+ paying subscribers globally. Operates Adventure Academy (8-13) and ReadingIQ. Backed by Chan Zuckerberg Initiative.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>ABCmouse #1 early learning app globally</li><li>Adventure Academy expansion (ages 8-13)</li><li>ReadingIQ literacy program</li><li>AI-powered adaptive learning</li><li>School district licensing partnerships</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Doug Dohring</span></td><td><span class="board-role">CEO &amp; Founder</span></td><td class="board-other">Early childhood education advocacy</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- SECTION 6: MEDIA -->
+<div class="section" id="media">
+<div class="container">
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <h2>Top 20 Global Media Companies</h2>
+  </div>
+  <div class="summary-bar">
+    <div class="summary-item"><span class="s-val">$62B</span><span class="s-lbl">YouTube 2025 Rev Est.</span></div>
+    <div class="summary-item"><span class="s-val">$45.2B</span><span class="s-lbl">Netflix 2025 Rev</span></div>
+    <div class="summary-item"><span class="s-val">+16%</span><span class="s-lbl">Netflix YoY Growth</span></div>
+    <div class="summary-item"><span class="s-val">325M+</span><span class="s-lbl">Netflix Subscribers</span></div>
+  </div>
+  <p style="font-size:13px;color:var(--mid);margin-bottom:20px;">Ranked by combination of 2025 revenue growth and market capitalization. Includes streaming, broadcasting, publishing, music, and social media companies. Tap each to expand board members and cross-board data.</p>
+
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">01</span>
+      <div class="company-name-block">
+        <div class="company-name">YouTube (Alphabet / Google)</div>
+        <div class="company-ticker">GOOGL · Video Streaming · San Bruno, CA</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~+15%</span><span class="lbl">2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">$500B+</span><span class="lbl">Est. Standalone Val.</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>Declared world's largest media company in 2025 with ~$62B revenue, surpassing Disney media. YouTube TV has 10M+ subscribers. Ad revenue $40B+. US TV time share 9.0% all-time high in Dec 2025.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Ad revenue $40B+ (+15% YoY)</li><li>YouTube Premium and Music subscriptions</li><li>YouTube TV (10M+ subscribers)</li><li>NFL Sunday Ticket exclusive rights</li><li>YouTube Shorts monetization growth</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Neal Mohan</span></td><td><span class="board-role">YouTube CEO</span></td><td class="board-other">Reports to Sundar Pichai; Alphabet leadership</td></tr><tr><td><span class="board-name">Sundar Pichai</span></td><td><span class="board-role">Alphabet CEO</span></td><td class="board-other">Business Roundtable; US-India Strategic Forum</td></tr><tr><td><span class="board-name">L. John Doerr</span></td><td><span class="board-role">Alphabet Director</span></td><td class="board-other">Kleiner Perkins; Amazon; various VC portfolios</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">02</span>
+      <div class="company-name-block">
+        <div class="company-name">Netflix Inc.</div>
+        <div class="company-ticker">NFLX · Streaming · Los Gatos, CA</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">+16%</span><span class="lbl">2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">~$380B</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>2025 revenue $45.2B (+16%). 325M+ paid subscribers. Ad revenue $1.5B+ (2.5x growth). 2026 guidance $50.7-51.7B. Announced $42.2B acquisition of Warner Bros. in 2026.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Ad-supported tier 2.5x revenue growth</li><li>Live events (NFL, boxing)</li><li>International original content</li><li>Warner Bros. acquisition (2026)</li><li>2026 content budget: $20B</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Ted Sarandos</span></td><td><span class="board-role">Co-CEO &amp; Director</span></td><td class="board-other">Academy of Motion Picture Arts; entertainment boards</td></tr><tr><td><span class="board-name">Greg Peters</span></td><td><span class="board-role">Co-CEO &amp; Director</span></td><td class="board-other">Various tech and media boards</td></tr><tr><td><span class="board-name">Reed Hastings</span></td><td><span class="board-role">Chairman</span></td><td class="board-other">Non-exec since Apr 2025; tech and philanthropic boards</td></tr><tr><td><span class="board-name">Strive Masiyiwa</span></td><td><span class="board-role">Director</span></td><td class="board-other">Econet Group (founder); African Union; Gates Foundation</td></tr><tr><td><span class="board-name">Elinor Mertz</span></td><td><span class="board-role">Director (Jun 2025)</span></td><td class="board-other">Various financial and media boards</td></tr><tr><td><span class="board-name">Jay Hoag</span></td><td><span class="board-role">Director</span></td><td class="board-other">TCV (founder); various growth equity boards</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">03</span>
+      <div class="company-name-block">
+        <div class="company-name">The Walt Disney Company</div>
+        <div class="company-ticker">DIS · Diversified Media · Burbank, CA</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~+5%</span><span class="lbl">2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">~$200B</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>Media revenue ~$60.9B in 2025 (excl. Experiences). Disney+ profitable in 2024. Owns Marvel, Star Wars, Pixar, ESPN, ABC, and Hulu. Bob Iger managing portfolio and succession decisions.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Disney+ subscriber retention and ARPU growth</li><li>Marvel and Star Wars franchise output</li><li>ESPN streaming transition</li><li>Theme park capacity expansion</li><li>Hulu integration into Disney bundle</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Bob Iger</span></td><td><span class="board-role">CEO &amp; Director</span></td><td class="board-other">Apple board (former); entertainment advisory</td></tr><tr><td><span class="board-name">James Gorman</span></td><td><span class="board-role">Chairman</span></td><td class="board-other">Former Morgan Stanley CEO; financial boards</td></tr><tr><td><span class="board-name">Mary Barra</span></td><td><span class="board-role">Director</span></td><td class="board-other">GM CEO; various industrial boards</td></tr><tr><td><span class="board-name">Mark Parker</span></td><td><span class="board-role">Director</span></td><td class="board-other">Nike Executive Chairman; Apple board</td></tr><tr><td><span class="board-name">Amy Chang</span></td><td><span class="board-role">Director</span></td><td class="board-other">Procter &amp; Gamble; Cisco (former); tech boards</td></tr><tr><td><span class="board-name">Calvin McDonald</span></td><td><span class="board-role">Director</span></td><td class="board-other">Lululemon CEO; various retail boards</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">04</span>
+      <div class="company-name-block">
+        <div class="company-name">Spotify Technology S.A.</div>
+        <div class="company-ticker">SPOT · Music/Audio Streaming · Stockholm, Sweden</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">+15%</span><span class="lbl">Q1 2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">~$80B</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>Q1 2025: Revenue €4.19B (+15% YoY). 678M MAUs. 268M premium subscribers. Record Q1 operating income €509M. Gross margin 31.6%. Free cash flow €534M record.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Premium subscriber growth all regions</li><li>Audiobooks bundled into Premium</li><li>Video podcast expansion (Partner Program)</li><li>Ad Exchange partnerships (Google DV360)</li><li>AI DJ and personalization features</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Daniel Ek</span></td><td><span class="board-role">CEO, Chairman &amp; Co-Founder</span></td><td class="board-other">Northvolt (investor); European tech boards</td></tr><tr><td><span class="board-name">Martin Lorentzon</span></td><td><span class="board-role">Co-Founder &amp; Director</span></td><td class="board-other">Swedish tech and media boards</td></tr><tr><td><span class="board-name">Shishir Mehrotra</span></td><td><span class="board-role">Director</span></td><td class="board-other">Coda (CEO/founder); YouTube (former VP)</td></tr><tr><td><span class="board-name">Cristina Stenbeck</span></td><td><span class="board-role">Director</span></td><td class="board-other">Kinnevik (Chairman); European media boards</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">05</span>
+      <div class="company-name-block">
+        <div class="company-name">Comcast Corporation</div>
+        <div class="company-ticker">CMCSA · Cable/Broadband/Media · Philadelphia, PA</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~+2%</span><span class="lbl">2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">~$140B</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>Revenue ~$123B in 2025. Spun off cable networks into Versant Media end of 2025. Retains NBC, Peacock, Universal Studios, 4 Universal theme parks. Sky is major international asset.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Xfinity broadband subscriber retention</li><li>Peacock streaming growth</li><li>Universal Pictures film slate</li><li>Epic Universe theme park (2025)</li><li>Sky international media (UK/Europe)</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Brian Roberts</span></td><td><span class="board-role">Chairman &amp; CEO</span></td><td class="board-other">Various cable and media industry groups</td></tr><tr><td><span class="board-name">Shari Redstone</span></td><td><span class="board-role">Director</span></td><td class="board-other">Paramount Global (former chair); National Amusements</td></tr><tr><td><span class="board-name">Thomas Reid</span></td><td><span class="board-role">Director</span></td><td class="board-other">Various financial and legal advisory boards</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">06</span>
+      <div class="company-name-block">
+        <div class="company-name">ByteDance (TikTok)</div>
+        <div class="company-ticker">Private · Short-Form Video · Beijing, China</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~+20%</span><span class="lbl">2025 Est. Growth</span></div>
+        <div class="stat-pill"><span class="val">~$300B</span><span class="lbl">Private Valuation</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>1.5B+ monthly active users. ByteDance revenue estimated $120B+ in 2025. Faces US regulatory scrutiny and potential divestiture. TikTok Shop e-commerce growing rapidly.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>TikTok Shop e-commerce integration</li><li>Creator monetization platform</li><li>AI recommendation engine</li><li>TikTok advertising revenue growth</li><li>Douyin dominance in China</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Shou Zi Chew</span></td><td><span class="board-role">TikTok CEO</span></td><td class="board-other">Key US Congressional liaison; ByteDance exec</td></tr><tr><td><span class="board-name">Zhang Yiming</span></td><td><span class="board-role">ByteDance Founder</span></td><td class="board-other">Stepped back from day-to-day; strategic advisor</td></tr><tr><td><span class="board-name">Rubo Liang</span></td><td><span class="board-role">ByteDance CEO</span></td><td class="board-other">Chinese tech industry advisory roles</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">07</span>
+      <div class="company-name-block">
+        <div class="company-name">Warner Bros. Discovery</div>
+        <div class="company-ticker">WBD · Film/TV/Streaming · New York, NY</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">Netflix Acq.</span><span class="lbl">$42.2B Deal</span></div>
+        <div class="stat-pill"><span class="val">~$25B</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>Netflix announced $42.2B acquisition of Warner Bros. in 2026. Revenue ~$38B. HBO/Max streaming growing. Plans to split streaming/studio from cable announced Jun 2025.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Netflix acquisition (pending regulatory approval)</li><li>HBO/Max streaming subscriber growth</li><li>DC Universe film slate</li><li>CNN digital transformation</li><li>NBA and March Madness sports rights</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">David Zaslav</span></td><td><span class="board-role">President &amp; CEO</span></td><td class="board-other">Various media and entertainment advisory boards</td></tr><tr><td><span class="board-name">Samuel Di Piazza Jr.</span></td><td><span class="board-role">Chairman</span></td><td class="board-other">Citigroup (former); various corporate boards</td></tr><tr><td><span class="board-name">John Malone</span></td><td><span class="board-role">Director</span></td><td class="board-other">Liberty Media (Chairman); Charter Communications</td></tr><tr><td><span class="board-name">Steven Miron</span></td><td><span class="board-role">Director</span></td><td class="board-other">Advance/Newhouse; various media boards</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">08</span>
+      <div class="company-name-block">
+        <div class="company-name">Fox Corporation</div>
+        <div class="company-ticker">FOX · News/Live Media · New York, NY</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~+6%</span><span class="lbl">2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">~$20B</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>Revenue ~$15B in 2025. Fox News most-watched US cable news. Holds major NFL and MLB rights. Tubi AVOD streaming growing rapidly. Leaner, higher-margin model post-Disney asset sale.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Fox News advertising and cable fees</li><li>NFL and MLB sports rights</li><li>Tubi AVOD streaming growth</li><li>Political news cycle advertising premium</li><li>Fox Business Network</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Lachlan Murdoch</span></td><td><span class="board-role">Executive Chairman &amp; CEO</span></td><td class="board-other">News Corp (Chairman); Murdoch family entities</td></tr><tr><td><span class="board-name">Rupert Murdoch</span></td><td><span class="board-role">Chairman Emeritus</span></td><td class="board-other">News Corp; global media holdings</td></tr><tr><td><span class="board-name">Paul Ryan</span></td><td><span class="board-role">Director</span></td><td class="board-other">Former House Speaker; various financial boards</td></tr><tr><td><span class="board-name">Anne Dias</span></td><td><span class="board-role">Director</span></td><td class="board-other">Aragon Holdings; financial boards</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">09</span>
+      <div class="company-name-block">
+        <div class="company-name">Sony Group Corporation</div>
+        <div class="company-ticker">SONY · Entertainment/Gaming/Music · Tokyo, Japan</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~+5%</span><span class="lbl">2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">~$90B</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>PlayStation gaming (130M+ PS5s), Sony Pictures, Sony Music (world's 2nd largest label). PlayStation Network is one of the world's largest gaming subscription platforms.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>PlayStation Network subscription growth</li><li>Sony Music streaming royalties boom</li><li>Spider-Man franchise (Marvel deal)</li><li>Live service gaming expansion</li><li>Sony Pictures theatrical releases</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Kenichiro Yoshida</span></td><td><span class="board-role">Chairman</span></td><td class="board-other">Japanese corporate and government advisory</td></tr><tr><td><span class="board-name">Hiroki Totoki</span></td><td><span class="board-role">President &amp; CEO</span></td><td class="board-other">Various Sony subsidiary boards</td></tr><tr><td><span class="board-name">Joseph Kraft III</span></td><td><span class="board-role">Director</span></td><td class="board-other">US financial and corporate boards</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">10</span>
+      <div class="company-name-block">
+        <div class="company-name">Paramount Global / Skydance</div>
+        <div class="company-ticker">PARA · Film/TV/Streaming · New York, NY</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">Merger</span><span class="lbl">2025 Combined Entity</span></div>
+        <div class="stat-pill"><span class="val">~$8B</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>Merged with Skydance Media in 2025. Owns CBS, Paramount Pictures, Paramount+, MTV, Nickelodeon, BET. David Ellison (Skydance) now leads the combined company.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Paramount+ streaming subscriber growth</li><li>CBS live sports and news dominance</li><li>Skydance blockbuster film pipeline</li><li>International Paramount+ expansion</li><li>Cost synergies from merger</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">David Ellison</span></td><td><span class="board-role">Chairman &amp; CEO</span></td><td class="board-other">Skydance founder; Oracle family connection</td></tr><tr><td><span class="board-name">Jeff Shell</span></td><td><span class="board-role">President</span></td><td class="board-other">Former NBCUniversal CEO</td></tr><tr><td><span class="board-name">Shari Redstone</span></td><td><span class="board-role">Director / Former Chair</span></td><td class="board-other">National Amusements; Comcast board</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">11</span>
+      <div class="company-name-block">
+        <div class="company-name">News Corp</div>
+        <div class="company-ticker">NWS · Publishing/News Media · New York, NY</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~+4%</span><span class="lbl">2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">~$14B</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>Owns Wall Street Journal, New York Post, The Times (UK), HarperCollins, and REA Group (Australia real estate). Revenue ~$10B in 2025. AI content licensing deals growing.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Wall Street Journal digital subscriptions</li><li>REA Group real estate platform growth</li><li>AI content licensing deals</li><li>HarperCollins book publishing</li><li>UK news media digital transition</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Rupert Murdoch</span></td><td><span class="board-role">Chairman Emeritus</span></td><td class="board-other">Fox Corporation; global media holdings</td></tr><tr><td><span class="board-name">Lachlan Murdoch</span></td><td><span class="board-role">Chairman</span></td><td class="board-other">Fox Corp (CEO); Murdoch entities</td></tr><tr><td><span class="board-name">Robert Thomson</span></td><td><span class="board-role">CEO &amp; Director</span></td><td class="board-other">Various media and publishing boards</td></tr><tr><td><span class="board-name">José María Aznar</span></td><td><span class="board-role">Director</span></td><td class="board-other">Former Spanish PM; FAES Foundation</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">12</span>
+      <div class="company-name-block">
+        <div class="company-name">Vivendi SE</div>
+        <div class="company-ticker">VIV · Diversified Media · Paris, France</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">Restructuring</span><span class="lbl">Post-Split 2024</span></div>
+        <div class="stat-pill"><span class="val">~$3B</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>Spun off Canal+, Havas, and Louis Hachette Group in 2024. Controlled by Vincent Bolloré. Canal+ listed separately in London. Havas is one of world's largest advertising groups.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Canal+ international streaming (Africa, Asia)</li><li>Havas global advertising growth</li><li>Hachette book publishing portfolio</li><li>CNews French news operations</li><li>Strategic portfolio repositioning</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Yannick Bolloré</span></td><td><span class="board-role">Chairman</span></td><td class="board-other">Havas (Chairman); Bolloré Group interests</td></tr><tr><td><span class="board-name">Arnaud de Puyfontaine</span></td><td><span class="board-role">CEO</span></td><td class="board-other">Various European media boards</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">13</span>
+      <div class="company-name-block">
+        <div class="company-name">Bertelsmann SE &amp; Co.</div>
+        <div class="company-ticker">Private · Diversified Media · Gütersloh, Germany</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~€19B</span><span class="lbl">2025 Revenue</span></div>
+        <div class="stat-pill"><span class="val">Private</span><span class="lbl">Family Owned</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>Europe's largest media company. Owns RTL Group (TV), Penguin Random House (world's largest publisher), BMG (music), Arvato (services), and Fremantle (TV formats globally).</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Penguin Random House global publishing</li><li>RTL Group streaming (RTL+)</li><li>Fremantle format sales worldwide</li><li>BMG music label growth</li><li>Arvato digital services expansion</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Thomas Rabe</span></td><td><span class="board-role">Chairman &amp; CEO</span></td><td class="board-other">European media and cultural boards</td></tr><tr><td><span class="board-name">Mohn Family</span></td><td><span class="board-role">Controlling Owners</span></td><td class="board-other">Family foundation controls Bertelsmann since 1835</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">14</span>
+      <div class="company-name-block">
+        <div class="company-name">Charter Communications</div>
+        <div class="company-ticker">CHTR · Cable/Broadband · Stamford, CT</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~+2%</span><span class="lbl">2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">~$40B</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>Second-largest US cable operator (Spectrum brand). Revenue ~$55B. Broadband resilient; mobile fastest-growing segment. Cord-cutting headwind offset by Spectrum Mobile growth.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Spectrum broadband subscriber retention</li><li>Spectrum Mobile growth</li><li>Rural broadband expansion (RDOF)</li><li>Internet speeds upgrade program</li><li>Bundle strategy vs streaming</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Chris Winfrey</span></td><td><span class="board-role">President &amp; CEO</span></td><td class="board-other">Various cable industry groups</td></tr><tr><td><span class="board-name">John Malone</span></td><td><span class="board-role">Director</span></td><td class="board-other">Liberty Media (Chairman); Warner Bros. Discovery</td></tr><tr><td><span class="board-name">Michael Newhouse</span></td><td><span class="board-role">Director</span></td><td class="board-other">Advance/Newhouse; various media boards</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">15</span>
+      <div class="company-name-block">
+        <div class="company-name">Universal Music Group</div>
+        <div class="company-ticker">UMG · Music/Entertainment · Amsterdam, Netherlands</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~+8%</span><span class="lbl">2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">~$40B</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>World's largest music company. Revenue ~€11B. Labels: Republic, Interscope, Island, Def Jam, Capitol. Streaming royalties dominate. AI music licensing a key 2026 issue.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Streaming royalty revenue growth</li><li>Tencent Music China partnership</li><li>AI music licensing negotiations</li><li>Artist-branded ventures</li><li>Catalogue acquisition strategy</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Lucian Grainge</span></td><td><span class="board-role">Chairman &amp; CEO</span></td><td class="board-other">Music and entertainment industry boards</td></tr><tr><td><span class="board-name">Strive Masiyiwa</span></td><td><span class="board-role">Director</span></td><td class="board-other">Netflix board; Econet Group; Gates Foundation</td></tr><tr><td><span class="board-name">Vincent Bolloré</span></td><td><span class="board-role">Director (via Vivendi)</span></td><td class="board-other">Vivendi; Bolloré Group global holdings</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">16</span>
+      <div class="company-name-block">
+        <div class="company-name">IAC Inc.</div>
+        <div class="company-ticker">IAC · Digital Media/Internet · New York, NY</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">Portfolio</span><span class="lbl">Media &amp; Internet</span></div>
+        <div class="stat-pill"><span class="val">~$3B</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>Owns Dotdash Meredith (People, Better Homes &amp; Gardens), Angi home services, Care.com. Revenue ~$3.5B. Barry Diller's media investment vehicle. Known for spinning out Expedia, Ticketmaster, Match Group.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Dotdash Meredith AI content strategy</li><li>Angi home services marketplace</li><li>Care.com family services platform</li><li>Digital advertising recovery</li><li>Portfolio spin-off strategy</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Barry Diller</span></td><td><span class="board-role">Chairman &amp; Senior Executive</span></td><td class="board-other">Various entertainment and internet boards</td></tr><tr><td><span class="board-name">Joey Levin</span></td><td><span class="board-role">CEO &amp; Director</span></td><td class="board-other">MGM Holdings (former); various media boards</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">17</span>
+      <div class="company-name-block">
+        <div class="company-name">Lionsgate Entertainment</div>
+        <div class="company-ticker">LGF · Film/TV/Streaming · Santa Monica, CA</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~$4B</span><span class="lbl">Revenue</span></div>
+        <div class="stat-pill"><span class="val">~$2B</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>Independent studio (Hunger Games, John Wick, Twilight). Starz streaming is primary digital asset. 17,000+ title library. Separated studio and Starz businesses in 2024.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>John Wick and Hunger Games sequels</li><li>Starz streaming subscriber growth</li><li>Library content licensing to streamers</li><li>International co-productions</li><li>Studio/Starz separation value unlock</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Jon Feltheimer</span></td><td><span class="board-role">CEO &amp; Director</span></td><td class="board-other">Entertainment and film industry boards</td></tr><tr><td><span class="board-name">Michael Burns</span></td><td><span class="board-role">Vice Chairman</span></td><td class="board-other">Investment and entertainment boards</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">18</span>
+      <div class="company-name-block">
+        <div class="company-name">Publicis Groupe</div>
+        <div class="company-ticker">PUB · Advertising/Media Services · Paris, France</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~+5%</span><span class="lbl">2025 Growth</span></div>
+        <div class="stat-pill"><span class="val">~$25B</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>World's 3rd largest advertising group. Revenue ~€14B. Owns Saatchi &amp; Saatchi, Leo Burnett, and digital agency Epsilon. Marcel AI platform. Strong organic growth from data and tech services.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Epsilon data and marketing technology</li><li>AI-powered Marcel internal platform</li><li>Digital and performance marketing growth</li><li>Healthcare advertising vertical</li><li>US market strength</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Arthur Sadoun</span></td><td><span class="board-role">Chairman &amp; CEO</span></td><td class="board-other">Global advertising industry boards</td></tr><tr><td><span class="board-name">Élisabeth Badinter</span></td><td><span class="board-role">Supervisory Board Chair</span></td><td class="board-other">Controls ~20% of Publicis; French media boards</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">19</span>
+      <div class="company-name-block">
+        <div class="company-name">Versant Media Group</div>
+        <div class="company-ticker">VSNT · Cable Networks · New York, NY (Spun off 2025)</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">New</span><span class="lbl">2025 Spin-Off</span></div>
+        <div class="stat-pill"><span class="val">~$7B</span><span class="lbl">Est. Value</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>Newly independent cable network company spun off from Comcast end of 2025. Includes MSNBC, CNBC, USA Network, E!, Syfy, Golf Channel, Fandango, and Rotten Tomatoes.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>MSNBC news network reach</li><li>CNBC financial news brand</li><li>Fandango movie ticketing platform</li><li>Rotten Tomatoes review platform</li><li>Cost discipline as independent entity</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Mark Lazarus</span></td><td><span class="board-role">Chairman &amp; CEO</span></td><td class="board-other">Former NBCUniversal Media Group chair</td></tr><tr><td><span class="board-name">Comcast Corp.</span></td><td><span class="board-role">Majority Shareholder</span></td><td class="board-other">Retained majority after spin-off</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+  <div class="company-card" onclick="toggleCard(this)">
+    <div class="company-header">
+      <span class="company-rank">20</span>
+      <div class="company-name-block">
+        <div class="company-name">Liberty Media / Formula One Group</div>
+        <div class="company-ticker">FWONA · Sports Media/Entertainment · Englewood, CO</div>
+      </div>
+      <div class="company-stats">
+        <div class="stat-pill"><span class="val">~+15%</span><span class="lbl">F1 Revenue Growth</span></div>
+        <div class="stat-pill"><span class="val">~$20B</span><span class="lbl">Mkt Cap</span></div>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="company-body">
+      <div class="detail-grid">
+        <div class="detail-box"><h4>Revenue &amp; Performance</h4><p>Formula One Group owns global F1 racing media rights. US viewership up 30%+ since Drive to Survive. Also owns SiriusXM, Atlanta Braves (MLB), and Live Nation stake.</p></div>
+        <div class="detail-box"><h4>Key Drivers</h4><ul><li>Formula 1 US audience surge</li><li>New F1 race locations (Las Vegas, Miami)</li><li>F1 broadcast rights renewals</li><li>SiriusXM satellite radio</li><li>Live Nation concert/event revenue</li></ul></div>
+      </div>
+      <div class="detail-box" style="margin-bottom:16px">
+        <h4>Board of Directors &amp; Leadership</h4>
+        <table class="board-table">
+          <tbody><tr><th>Name</th><th>Role</th><th>Other Board Seats</th></tr>
+          <tr><td><span class="board-name">Greg Maffei</span></td><td><span class="board-role">President &amp; CEO</span></td><td class="board-other">SiriusXM; Live Nation; TripAdvisor; Charter</td></tr><tr><td><span class="board-name">John Malone</span></td><td><span class="board-role">Chairman</span></td><td class="board-other">Charter; Warner Bros. Discovery; various media</td></tr><tr><td><span class="board-name">Stefano Domenicali</span></td><td><span class="board-role">F1 CEO</span></td><td class="board-other">FIA advisory; motorsport governance boards</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- FOOTER -->
+<div class="report-footer">
+  <span>The GI Report · Issue No. 2 · Friday, May 1, 2026 · Published Every Friday</span><br>
+  Data sourced from SEC filings, company earnings reports, TIME/Statista EdTech Rankings, Hollywood Reporter, Variety, and public financial disclosures.<br>
+  This report is for informational purposes only and does not constitute investment advice. Valuations and projections subject to change.
+</div>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const tabs = ['growth','education','media','ipo2025','ipo2026','trends'];
+  document.querySelectorAll('.nav-tab')[tabs.indexOf(id)].classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+function toggleCard(card) {
+  card.classList.toggle('open');
+}
+</script>
+
+
+</body></html>
